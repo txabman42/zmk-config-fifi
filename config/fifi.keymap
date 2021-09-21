@@ -17,14 +17,25 @@
 #define FUN     6
 
 / {
+	behaviors {
+		hm: homerow_mods {
+			compatible = "zmk,behavior-hold-tap";
+			label = "homerow mods";
+			#binding-cells = <2>;
+			tapping_term_ms = <150>;
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
+	};
+
     keymap {
         compatible = "zmk,keymap";
 
         base_layer {
             bindings = <
    &kp Q      &kp W       &kp F         &kp P         &kp B           &kp J       &kp L       &kp U       &kp Y         &kp SQT
-   &mt LGUI A &mt LALT R  &mt LCTRL S   &mt LSHFT T   &kp G           &kp M       &mt LSHFT N &mt LCTRL E &mt LALT I    &mt LGUI O
-   &kp Z      &mt RALT X  &kp C         &kp D         &kp V           &kp K       &kp H       &kp COMMA   &mt RALT DOT  &kp FSLH
+   &hm LGUI A &hm LALT R  &hm LCTRL S   &hm LSHFT T   &kp G           &kp M       &hm LSHFT N &hm LCTRL E &hm LALT I    &hm LGUI O
+   &kp Z      &hm RALT X  &kp C         &kp D         &kp V           &kp K       &kp H       &kp COMMA   &hm RALT DOT  &kp FSLH
                           &lt MEDIA ESC &lt NAV SPACE &lt MOUSE TAB   &lt SYM RET &lt NUM BSPC &lt FUN DEL
             >;
         };
